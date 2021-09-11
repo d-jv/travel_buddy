@@ -109,12 +109,19 @@ def add(request):
 @login_required
 def travels(request, trip_id):
     travel = Travel.objects.get(id=int(trip_id))
+    try:
+        check = travel.travelers.get(id=travel.user.id)
+        creatorIn = True
+    except User.DoesNotExist:
+        creatorIn = False
+    print(creatorIn)
     travelers = travel.travelers.exclude(id=travel.user.id)
     data = {
         # "travel" : Travel.objects.get(id=int(trip_id)),
         "travel" : travel,
         # "travelers" : travel.travelers.all()
         "travelers" : travelers,
+        "creatorIn" : creatorIn,
     }
     return render(request, 'travels.html', data)
 
