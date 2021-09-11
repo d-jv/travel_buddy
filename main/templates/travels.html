@@ -3,12 +3,12 @@
     <div class="row">
         <div class="col-12 mx-auto">
             <h3 class="fw-bold">{{travel.destination}}</h3>
+            <p class="mb-0"><span class="fw-bold text-warning">Planned By:</span> {{travel.user.first_name}} {{travel.user.last_name}}</p>
             {% if creatorIn == True %}
-            <a class="disable nav-link text-success">Creator participating in trip</a>
+            <a class="pt-0 disable nav-link text-success">Creator participating in trip</a>
             {% else %}
-            <a class="disable nav-link text-danger">Creator NOT participating in trip</a>
+            <a class="pt-0 disable nav-link text-danger">Creator NOT participating in trip</a>
             {% endif %}
-            <p><span class="fw-bold text-warning">Planned By:</span> {{travel.user.first_name}} {{travel.user.last_name}}</p>
             <p><span class="fw-bold text-warning">Description: </span>{{travel.description}}</p>
             <p><span class="fw-bold text-warning">Travel Date From: </span>{{travel.date_from}}</p>
             <p><span class="fw-bold text-warning">Travel Date To: </span>{{travel.date_to}}</p>

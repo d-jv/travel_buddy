@@ -95,7 +95,7 @@ def index(request):
     inHere = [travel.id for travel in user.travels.all()]
     notHere = [travel for travel in Travel.objects.all() if travel.id not in inHere]
     data = {
-        'trips': user.travels.all(),
+        'trips': user.travels.all().order_by('date_from'),
         'other_trips': notHere,
     }
     return render(request, 'index.html', data)
