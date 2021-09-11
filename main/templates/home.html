@@ -1,0 +1,59 @@
+{% extends 'base.html' %} {% block content %}
+<div id="landing-bg" class="min-vh-100 text-white d-flex justify-content-center align-items-center">
+    <div id="landing-welcome" class="col-5 mx-auto text-center landing-welcome">
+        <h2 class="text-center text-primary fw-bold">Welcome</h2>
+        <form method="POST" action="/login">
+            {% csrf_token %}
+            <div class="my-3 text-center input-group">
+                <label for="email" class="input-group-text">Email:</label>
+                <input type="email" name="email" class="text-center form-control input-home mx-auto" placeholder="E.g: contact@lagman.com" required />
+            </div>
+            <div class="mb-3 input-group">
+                <label for="password" class="input-group-text">Password:</label>
+                <input type="password" name="password" class="text-center form-control input-home mx-auto" placeholder="Enter your password here" required />
+            </div>
+            <div class="mb-3 input-group">
+                <label for="password_check" class="input-group-text">Confirm Password:</label>
+                <input type="password" name="password_check" class="text-center form-control input-home mx-auto" placeholder="Repeat password" required />
+            </div>
+            <div class="text-center"><button type="submit" class="btn btn-primary">LOGIN</button></div>
+        </form>
+        <p>----- or -----</p>
+        <button id="create_account" class="btn btn-success">Create new account</button>
+    </div>
+    <div id="create_form" class="d-none col-5 mx-auto text-center landing-welcome">
+        <h2 class="text-center text-warning fw-bold">New account information:</h2>
+        <form method="POST" action="/create_account">
+            {% csrf_token %}
+            <div class="my-3 text-center input-group">
+                <label for="" class="input-group-text">Full name:</label>
+                <input type="text" name="first_name" class="text-center form-control input-home mx-auto" placeholder="First Name" required />
+                <input type="text" name="last_name" class="text-center form-control input-home mx-auto" placeholder="Last Name" required />
+            </div>
+            <div class="my-3 text-center input-group">
+                <label for="email" class="input-group-text">Email:</label>
+                <input type="email" name="email" class="text-center form-control input-home mx-auto" placeholder="E.g: contact@lagman.com" required />
+            </div>
+            <div class="mb-3 input-group">
+                <label for="password" class="input-group-text">Password:</label>
+                <input type="password" name="password" class="text-center form-control input-home mx-auto" placeholder="Enter your password here" required />
+            </div>
+            <div class="mb-3 input-group">
+                <label for="password_check" class="input-group-text">Confirm Password:</label>
+                <input type="password" name="password_check" class="text-center form-control input-home mx-auto" placeholder="Repeat password" required />
+            </div>
+            <div class="mb-3 input-group">
+                <label for="avatar" class="input-group-text">Avatar url:</label>
+                <input type="url" name="avatar" class="text-center form-control input-home mx-auto" placeholder="E.g: www.google.com/image1234.jpeg" />
+            </div>
+            <br />
+            <div class="text-center"><button type="submit" class="btn btn-warning">Create!</button></div>
+        </form>
+    </div>
+</div>
+<script>
+    $("#create_account").on("click", function () {
+        $("#create_form").removeClass("d-none");
+    });
+</script>
+{% endblock %}

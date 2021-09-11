@@ -1,0 +1,62 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container-fluid p-5">
+    <h3 class="text-warning">Hello, {{request.session.user.first_name}} {{request.session.user.last_name}}!</h3>
+    <div class="row mt-5">
+        <h5>Your Trip Schedules</h5>
+        <table class="table table-dark my-3">
+            <thead>
+                <tr class="table-dark text-center">
+                    <th class="table-dark" scope="col">Destination</th>
+                    <th class="table-dark" scope="col">Travel Start Date</th>
+                    <th class="table-dark" scope="col">Travel End Date</th>
+                    <th class="table-dark" scope="col">Plan</th>
+                    <th class="table-dark" scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for trip in trips %}
+                <tr class="text-center">
+                    <td><a href="/travels/destination/{{trip.id}}">{{trip.destination}}</a></td>
+                    <td>{{trip.date_from}}</td>
+                    <td>{{trip.date_to}}</td>
+                    <td>{{trip.description}}</td>
+                    {% if request.session.user.email == trip.user.email %}
+                    <td><a class="link-info" href="cancel/{{trip.id}}">Cancel</a> <a class="link-danger" href="delete/{{trip.id}}">Delete </a></td>
+                    {% else %}
+                    <td><a class="link-info" href="cancel/{{trip.id}}">Cancel</a></td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="row mt-5">
+        <h5>Other User's Travel Plans</h5>
+        <table class="table table-dark my-3">
+            <thead>
+                <tr class="table-dark text-center">
+                    <th class="table-dark" scope="col">Creator Name</th>
+                    <th class="table-dark" scope="col">Destination</th>
+                    <th class="table-dark" scope="col">Travel Start Date</th>
+                    <th class="table-dark" scope="col">Travel End Date</th>
+                    <th class="table-dark" scope="col">Do you want to Join?</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for trip in other_trips %}
+                <tr class="text-center">
+                    <td>{{trip.user.first_name}} {{trip.user.last_name}}</td>
+                    <td><a href="/travels/destination/{{trip.id}}">{{trip.destination}}</a></td>
+                    <td>{{trip.date_from}}</td>
+                    <td>{{trip.date_to}}</td>
+                    <td><a class="link-success" href="join/{{trip.id}}">Join</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="text-end">
+        <a class="btn btn-outline-primary" href="/travels/add">Add Travel Plan</a>
+    </div>
+</div>
+{% endblock %}

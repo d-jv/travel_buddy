@@ -1,0 +1,21 @@
+#landing-bg {
+    background-image: url(https://static01.nyt.com/images/2017/11/08/business/socialmedia-guide-still/socialmedia-guide-still-jumbo.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.landing-welcome {
+    backdrop-filter: blur(20px);
+    padding: 1rem;
+}
+
+.messages {
+    margin-left: 3rem;
+}
+.msg-link {
+    margin-left: 3rem;
+}
+
+.comments {
+    margin-left: 6rem;
+}

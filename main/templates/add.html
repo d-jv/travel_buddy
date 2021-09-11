@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container-fluid p-5">
+    <div id="" class="col-5 me-auto text-center">
+        <h2 class="text-center text-primary fw-bold">Add a Trip</h2>
+        <form method="POST" action="/add_travel">
+            {% csrf_token %}
+            <div class="my-3 text-center input-group">
+                <label for="destination" class="input-group-text">Destination:</label>
+                <input type="text" name="destination" class="text-center form-control input-home mx-auto" placeholder="E.g: Santiago, Chile" required />
+            </div>
+            <div class="mb-3 input-group">
+                <label for="description" class="input-group-text">Description:</label>
+                <input type="text" name="description" class="text-center form-control input-home mx-auto" placeholder="Enter a brief description here" required />
+            </div>
+            <div class="mb-3 input-group">
+                <label for="date_from" class="input-group-text">Travel Date From:</label>
+                <input type="date" name="date_from" class="text-center form-control input-home mx-auto" required />
+            </div>
+            <div class="mb-3 input-group">
+                <label for="date_to" class="input-group-text">Travel Date To:</label>
+                <input type="date" name="date_to" class="text-center form-control input-home mx-auto" required />
+            </div>
+            <div class="text-center"><button type="submit" class="btn btn-primary">Add</button></div>
+    </div>
+</div>
+
+{% endblock %}
