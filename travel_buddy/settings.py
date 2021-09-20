@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '^*x4^2^*%1iq3a)m_n(y*wa$pl8xo0
 # DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['immense-inlet-03559.herokuapp.com', 'localhost:8000']
+ALLOWED_HOSTS = ['immense-inlet-03559.herokuapp.com', 'localhost']
 
 
 # Application definition
