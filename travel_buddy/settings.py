@@ -24,12 +24,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-t27p&@a)yl(2+v62=i_lj-ehz_g-9w6hn(%nls-b(depndt@9='
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-t27p&@a)yl(2+v62=i_lj-ehz_g-9w6hn(%nls-b(depndt@9=')
+# SECRET_KEY = '^*x4^2^*%1iq3a)m_n(y*wa$pl8xo0+hhy@nk_qi^xye7j4oo&'
+
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '^*x4^2^*%1iq3a)m_n(y*wa$pl8xo0+hhy@nk_qi^xye7j4oo&')
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['immense-inlet-03559.herokuapp.com', 'localhost:8000']
 
 
 # Application definition
